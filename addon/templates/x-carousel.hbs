@@ -1,0 +1,8 @@
+{{yield
+	(hash
+		slides=(component 'x-carousel@x-carousel-slides' active=active step=(action 'step') register-slide=(action 'register-slide'))
+		dots=(component 'x-carousel@x-carousel-dots' active=active slides=slides step=(action 'step') navigate=(action 'navigate'))
+		active=active
+		activeIndex=activeIndex
+	)
+}}

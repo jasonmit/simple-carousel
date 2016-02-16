@@ -1,0 +1,100 @@
+body, html {
+  background: #DFE2E2;
+}
+
+carousel, slides, dots {
+  display: block;
+}
+
+carousel, slides {
+  position: relative;
+  max-width: 550px;
+  width: 500px;
+}
+
+slides {
+  overflow: hidden;
+  height: 405px;
+}
+
+slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+slide.current {
+  opacity: 1;
+  z-index: 1;
+}
+
+dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+arrow, dot {
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  background: url('https://store.nest.com/assets/images/store/products/sprites/dot_gray-7a653d4e6c8b399ccc23cef58bd69a54.png?1451956951') no-repeat center center;
+  background-size: cover;
+}
+
+dot.current {
+  background: url('https://store.nest.com/assets/images/store/products/sprites/dot_blue-55928a2fb1226cbde8e53af9bc05b5d9.png?1451956951') no-repeat center center;
+}
+
+arrow {
+  width: 36px;
+  height: 36px;
+}
+
+arrow.left {
+  background: url('https://store.nest.com/assets/images/store/products/sprites/dot_left_arrow-c2abb2a36e6e719a2aead67077dfbeda.png?1451956951') no-repeat center center;
+  background-size: cover;
+}
+arrow.right {
+  background: url('https://store.nest.com/assets/images/store/products/sprites/dot_right_arrow-5d418fe389fb1df40331b47c603cfb1e.png?1451956951') no-repeat center center;
+  background-size: cover;
+}
+
+.one, .two, .three {
+  background-size: cover;
+}
+
+.one {
+  background-image: url('https://store.nest.com/assets/images/store/products/protect/2/slide4-051b7288d6103c67cfb59bf717233092.jpg');
+}
+
+.one a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.two {
+  background-image: url('https://store.nest.com/assets/images/store/products/protect/2/slide1-9239a1b9d0f2ee2ad64312bae86be0ad.png');
+}
+
+.three {
+  background-image: url('https://store.nest.com/assets/images/store/products/protect/2/slide3-2ab4e167907ca4b48f44d285f0aa2d0d.jpg');
+}

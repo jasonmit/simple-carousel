@@ -1,0 +1,9 @@
+<arrow class="left" role="button" {{action step -1}}></arrow>
+
+{{#each slides as |slide idx|}}
+<dot class="{{if (eq active slide) 'current'}}" role="button" {{action navigate idx}}>
+	{{yield slide idx}}
+</dot>
+{{/each}}
+
+<arrow class="right" role="button" {{action step 1}}></arrow>
