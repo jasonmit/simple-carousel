@@ -20,6 +20,14 @@
 {{/x-carousel}}
 ```
 
+## TODO
+
+* animation support
+* tests
+* docs
+* `beforeStep`/`afterStep` action
+  * Pass metadata of the slide `date-*` attributes`
+
 ## Installation
 
 * `git clone` this repository
