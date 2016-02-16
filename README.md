@@ -23,6 +23,7 @@
 ## TODO
 
 * adaptive height
+* multiple items
 * animation support
 * tests
 * docs
