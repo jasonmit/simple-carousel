@@ -3,7 +3,7 @@
 <3 PLEASE DO NOT USE <3
 
 ```hbs
-{{#x-carousel as |carousel|}}
+{{#x-carousel on-change=(action 'onCarouselChanged') as |carousel|}}
   {{#carousel.slides as |slides|}}
     {{#slides.slide class="one"}}
       <a href="#meet-the-nest-protect" draggable="false">
@@ -13,7 +13,7 @@
 
     {{slides.slide class="two"}}
 
-    {{slides.slide class="three"}}
+    {{slides.slide  class="three"}}
   {{/carousel.slides}}
 
   {{carousel.dots arrows=true}}
@@ -26,8 +26,6 @@
 * tests
 * docs
 * dot/arrow click action
-  * Pass metadata of the slide `date-*` attributes`
-* `beforeStep`/`afterStep` action
   * Pass metadata of the slide `date-*` attributes`
 
 ## Installation

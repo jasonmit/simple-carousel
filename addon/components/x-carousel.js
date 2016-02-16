@@ -22,6 +22,22 @@ export default Component.extend({
     set(this, 'slides', Ember.A());
   },
 
+  setActiveByIndex(newIndex) {
+    if (this.attrs['on-before-change']) {
+      const result = this.attrs['on-before-change'](newIndex);
+
+      if (typeof result === 'boolean' && !result) {
+        return false;
+      }
+    }
+
+    set(this, 'activeIndex', newIndex);
+
+    if (this.attrs['on-change']) {
+      this.attrs['on-change'](newIndex);
+    }
+  },
+
   actions: {
     'register-slide'(slide) {
       get(this, 'slides').addObject(slide);
@@ -36,11 +52,11 @@ export default Component.extend({
       if (next < 0) { next = (length - 1); }
       else if (next >= length) { next = 0; }
 
-      set(this, 'activeIndex', next);
+      this.setActiveByIndex(next);
     },
 
     navigate(index) {
-      set(this, 'activeIndex', index);
+      this.setActiveByIndex(index);
     }
   }
 });
