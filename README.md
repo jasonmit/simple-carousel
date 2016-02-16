@@ -3,7 +3,7 @@
 <3 PLEASE DO NOT USE <3
 
 ```hbs
-{{#x-carousel on-slide-change=(action 'slide-changed') as |carousel|}}
+{{#x-carousel as |carousel|}}
   {{#carousel.slides as |slides|}}
     {{#slides.slide class="one"}}
       <a href="#meet-the-nest-protect" draggable="false">
@@ -11,9 +11,9 @@
       </a>
     {{/slides.slide}}
 
-		{{slides.slide class="two"}}
+    {{slides.slide class="two"}}
 
-		{{slides.slide  class="three"}}
+    {{slides.slide  class="three"}}
   {{/carousel.slides}}
 
   {{carousel.dots arrows=true on-click=(action 'dot-clicked')}}
