@@ -2,6 +2,24 @@
 
 This README outlines the details of collaborating on this Ember addon.
 
+```hbs
+{{#x-carousel on-slide-change=(action 'slide-changed') as |carousel|}}
+  {{#carousel.slides as |slides|}}
+    {{#slides.slide class="one"}}
+      <a href="#meet-the-nest-protect" draggable="false">
+        <span class="gallery-play-button"></span>
+      </a>
+    {{/slides.slide}}
+
+		{{slides.slide class="two"}}
+
+		{{slides.slide  class="three"}}
+  {{/carousel.slides}}
+
+  {{carousel.dots arrows=true on-click=(action 'dot-clicked')}}
+{{/x-carousel}}
+```
+
 ## Installation
 
 * `git clone` this repository
