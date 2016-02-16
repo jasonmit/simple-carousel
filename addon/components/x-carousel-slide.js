@@ -1,22 +1,25 @@
 import Ember from 'ember';
-import layout from '../templates/x-carousel-slide';
 import RecognizerMixin from 'ember-gestures/mixins/recognizers';
+
+import layout from '../templates/x-carousel-slide';
 
 const { Component, computed, get } = Ember;
 
 export default Component.extend(RecognizerMixin, {
   layout,
   tagName: 'slide',
-  attributeBindings: ['draggable'],
+  attributeBindings: ['draggable', 'aria-hidden'],
   classNameBindings: ['current'],
 
   recognizers: 'swipe',
   draggable: false,
 
-  current: computed('active', {
-    get() {
+  current: computed('active', function() {
       return get(this, 'active') === this;
-    }
+  }).readOnly(),
+
+  'aria-hidden': computed('current', function() {
+    return !get(this, 'current');
   }).readOnly(),
 
   swipeLeft() {
