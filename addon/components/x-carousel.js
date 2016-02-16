@@ -7,6 +7,7 @@ export default Component.extend({
   layout,
   tagName: 'carousel',
 
+  infinite: true,
   slides: null,
   activeIndex: 0,
 
@@ -47,10 +48,19 @@ export default Component.extend({
       const activeIndex = get(this, 'activeIndex');
       const length = get(this, 'slides.length');
 
+      if (!length) {
+        throw new Error('slides not set or empty');
+      }
+
       let next = activeIndex + direction;
 
-      if (next < 0) { next = (length - 1); }
-      else if (next >= length) { next = 0; }
+      if (get(this, 'infinite')) {
+        if (next < 0) { next = (length - 1); }
+        else if (next >= length) { next = 0; }
+      }
+
+      next = Math.min(next, (length - 1));
+      next = Math.max(next, 0);
 
       this.setActiveByIndex(next);
     },

@@ -22,6 +22,7 @@
 
 ## TODO
 
+* adaptive height
 * animation support
 * tests
 * docs

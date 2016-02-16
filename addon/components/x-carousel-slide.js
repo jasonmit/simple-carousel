@@ -8,9 +8,10 @@ export default Component.extend(RecognizerMixin, {
   layout,
   tagName: 'slide',
   attributeBindings: ['draggable'],
-  draggable: false,
   classNameBindings: ['current'],
+
   recognizers: 'swipe',
+  draggable: false,
 
   current: computed('active', {
     get() {
