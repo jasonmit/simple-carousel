@@ -13,10 +13,10 @@
 
     {{slides.slide class="two"}}
 
-    {{slides.slide  class="three"}}
+    {{slides.slide class="three"}}
   {{/carousel.slides}}
 
-  {{carousel.dots arrows=true on-click=(action 'dot-clicked')}}
+  {{carousel.dots arrows=true}}
 {{/x-carousel}}
 ```
 
@@ -25,6 +25,8 @@
 * animation support
 * tests
 * docs
+* dot/arrow click action
+  * Pass metadata of the slide `date-*` attributes`
 * `beforeStep`/`afterStep` action
   * Pass metadata of the slide `date-*` attributes`
 
