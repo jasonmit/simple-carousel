@@ -1,6 +1,6 @@
 # X-carousel
 
-This README outlines the details of collaborating on this Ember addon.
+<3 PLEASE DO NOT USE <3
 
 ```hbs
 {{#x-carousel on-slide-change=(action 'slide-changed') as |carousel|}}
