@@ -3,7 +3,7 @@
 <3 PLEASE DO NOT USE <3
 
 ```hbs
-{{#x-carousel on-change=(action 'onCarouselChanged') as |carousel|}}
+{{#x-carousel on-change=(action 'onCarouselChanged') autoplay=false as |carousel|}}
   {{#carousel.slides as |slides|}}
     {{#slides.slide class="one"}}
       <a href="#meet-the-nest-protect" draggable="false">
