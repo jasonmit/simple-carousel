@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import layout from '../templates/x-carousel';
+import PauseableRunLater from '../utils/pauseable-run-later';
 
 const { Component, computed, get, set, run } = Ember;
 
@@ -9,14 +10,10 @@ export default Component.extend({
 
   infinite: true,
   autoplay: false,
-  timeout: 7000,
+  timeout: 5000,
 
   slides: null,
   activeIndex: 0,
-
-  state: {
-    hovering: false
-  },
 
   active: computed('activeIndex', 'slides.[]', {
     get() {
@@ -60,11 +57,15 @@ export default Component.extend({
   },
 
   mouseEnter() {
-    set(this, 'state.hovering', true);
+    if (get(this, 'autoplay')) {
+      this.scheduler.pause();
+    }
   },
 
   mouseLeave() {
-    set(this, 'state.hovering', false);
+    if (get(this, 'autoplay')) {
+      this.scheduler.unpause();
+    }
   },
 
   setActiveByIndex(newIndex) {
@@ -84,11 +85,15 @@ export default Component.extend({
   },
 
   tick(firstRun) {
-    if (!firstRun && !get(this, 'state.hovering')) {
+    if (!firstRun) {
       this.step(1);
     }
 
-    run.later(this, 'tick', get(this, 'timeout'));
+    if (this.scheduler) {
+      this.scheduler.stop();
+    }
+
+    this.scheduler = new PauseableRunLater(this, 'tick', get(this, 'timeout'));
   },
 
   willDestroyElement() {
